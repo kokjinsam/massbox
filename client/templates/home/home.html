@@ -1,0 +1,317 @@
+<template name="home">
+	<main>
+		<div class="komo-box__home-left">
+		{{#if currentUser}}
+			<ul>
+				<a href="{{pathFor route='requests'}}"><li class="waves-effect waves"><i class="material-icons komo-side-nav__icon komo-red">access_time</i> <span class="komo-side-nav__list-normal">Requests</span><span class="komo-pub-count {{hideRequestCount}}">{{getPublishedCount 'request-buyer-count'}}</span></li></a>
+				<a href="{{pathFor route='messages'}}"><li class="waves-effect waves"><i class="material-icons komo-side-nav__icon komo-blue">mail</i> <span class="komo-side-nav__list-normal">Messages</span><span class="komo-pub-count {{hideMessageCount}}">{{getPublishedCount 'message-buyer-count'}}</span></li></a>
+				<a href="{{pathFor route='settings'}}"><li class="waves-effect waves"><i class="material-icons komo-side-nav__icon komo-green">settings</i> <span class="komo-side-nav__list-normal">Settings</span></li></a>
+				<a href="{{pathFor route='seller.dashboard'}}"><li class="waves-effect waves"><i class="material-icons komo-side-nav__icon komo-lime">store</i> <span class="komo-side-nav__list-normal">Switch to Seller</span></li></a>
+				<div class="divider"></div>
+				<a href="{{pathFor route='about'}}"><li class="waves-effect waves">About</li></a>
+				<a href="{{pathFor route='faq'}}"><li class="waves-effect waves">FAQ</li></a>
+				<a href="#" id="meteor-logout"><li class="waves-effect waves">Logout</li></a>
+			</ul>
+		{{else}}
+			<ul>
+				<a href="{{pathFor route='about'}}"><li class="waves-effect waves"><i class="material-icons komo-side-nav__icon komo-red">explore</i> <span class="komo-side-nav__list-normal">About MassBox</span></li></a>
+				<a href="{{pathFor route='faq'}}"><li class="waves-effect waves"><i class="material-icons komo-side-nav__icon komo-green">question_answer</i> <span class="komo-side-nav__list-normal">FAQ</span></li></a>				
+				<a href="{{pathFor route='user.signIn'}}"><li class="waves-effect waves"><i class="material-icons komo-side-nav__icon komo-blue">lock_outline</i> <span class="komo-side-nav__list-normal">Sign In</span></li></a>
+				<a href="{{pathFor route='user.signUp'}}"><li class="waves-effect waves"><i class="material-icons komo-side-nav__icon komo-lime">perm_identity</i> <span class="komo-side-nav__list-normal">Sign Up</span></li></a>
+			</ul>
+		{{/if}}
+		</div>
+		
+		<div class="komo-box__home-center">	
+			<div class="komo-box__flex komo-special-flex">
+				{{#if itemsReady}}				
+					{{#each items}}
+						{{#linkTo route='item'}}
+							<div class="komo-card__box waves-effect waves">
+								<div class="komo-card__cover">
+									<img src="{{getOnePic pictures}}" height="140" width="140">
+								</div>
+								<div class="komo-card__detail">
+									<span class="komo-card__detail-price">${{price}}</span>
+									<span class="komo-card__detail-view"><i class="material-icons">visibility</i> {{views}}</span>
+								</div>
+							</div>
+						{{/linkTo}}
+					{{/each}}
+					
+					<div class="komo-home__navigation">
+						<a id="show-back" class="{{hideBack}}"><i class="material-icons">chevron_left</i> Back</a>
+						<a id="show-next" class="{{hideNext}}">Next <i class="material-icons">chevron_right</i></a>
+					</div>
+				{{else}}
+					{{> loading}}
+				{{/if}}
+			</div>
+		</div>
+		<a class="btn-floating btn-large waves-effect waves-light red modal-trigger komo-fab__filter" href="#filter-modal"><i class="material-icons">filter_list</i></a>
+		
+		<div id="filter-modal" class="modal bottom-sheet">
+			<div class="modal-content">
+				<h5 style="text-align:center;"><i class="material-icons">filter_list</i> Filter Items</h5>
+				<span class="komo-home__refresh" id="reset"><i class="material-icons circle waves-effect waves">refresh</i></span>
+				<form id="filter-items">
+				<div class="row">
+					<div class="col s6">
+						<label>Category</label>
+				    <select name="category" id="input_category" class="browser-default">
+				      <option value="" selected>Any Category</option>
+				      {{#each categories}}
+								<option value="{{_id}}" {{isSelectedCategory}}>{{_id}}</option>
+				      {{/each}}
+				    </select>
+				  </div>
+					<div class="col s6">
+						<label>Method</label>
+				    <select name="method" id="input_method" class="browser-default">
+				      <option value="" selected>Any method</option>
+				      {{#each method}}
+								<option value="{{value}}" {{isSelectedValue 'method'}}>{{text}}</option>
+							{{/each}}
+				    </select>
+				   </div>
+				</div>
+				
+				{{#if showBooks}}
+					<div class="row">
+						<div class="input-field col s4">
+							<input name="title" id="input_title" type="text">
+							<label for="input_title">Book Title</label>
+						</div>
+						<div class="input-field col s4">
+							<input name="classTitle" id="input_class-title" type="text">
+							<label for="input_class-title">Class Title (ie.MATH)</label>
+						</div>
+						<div class="input-field col s4">
+							<input name="classNumber:number" id="input_class-number" type="number">
+							<label for="input_class-number">Class Number (ie.5xxx)</label>
+						</div>
+					</div>
+				{{/if}}
+				
+				{{#if showElectronics}}
+					<div class="row">
+						<div class="col s6">
+							<label>Type</label>
+					    <select name="type" id="input_type" class="browser-default">
+					      <option value="" selected>Any type</option>
+					      {{#with electronicsTypes}}
+									{{#each type}}
+										 <option value="{{this}}" {{isSelected 'type'}}>{{this}}</option>
+									{{/each}}
+					      {{/with}}
+					    </select>
+						</div>
+						<div class="input-field col s6">
+							<input name="brand" id="input_brand" type="text">
+							<label for="input_brand">Brand</label>
+						</div>
+					</div>
+					<div class="row">
+						<div class="input-field col s4">
+							<input name="dimWidth:number" id="input_width" type="number">
+							<label for="input_width">Width ( inch )</label>
+						</div>
+						<div class="input-field col s4">
+							<input name="dimHeight:number" id="input_height" type="number">
+							<label for="input_height">Height ( inch )</label>
+						</div>
+						<div class="input-field col s4">
+							<input name="dimLength:number" id="input_length" type="number">
+							<label for="input_length">Length ( inch )</label>
+						</div>
+					</div>
+				{{/if}}
+				
+				{{#if showClothing}}
+					<div class="row">
+				    <label>Type</label>
+				    <select name="type" id="input_type" class="browser-default">
+				      <option value="" selected>Any type</option>
+				      {{#with clothingTypes}}
+								{{#each type}}
+									 <option value="{{this}}" {{isSelected 'type'}}>{{this}}</option>
+								{{/each}}
+				      {{/with}}
+				    </select>
+					</div>				
+					<div class="row">
+						<div class="col s4">
+							<label>Size</label>
+							<select name="size" id="input_size" class="browser-default">
+								<option value="" selected>Any size</option>
+								{{#each size}}
+									<option value="{{value}}" {{isSelectedValue 'size'}}>{{text}}</option>
+								{{/each}}
+							</select>
+						</div>
+						<div class="col s4">
+							<label>Sex</label>
+							<select name="sex" id="input_sex" class="browser-default">
+								<option value="" selected>Any sex</option>
+								{{#each sex}}
+									<option value="{{value}}" {{isSelectedValue 'sex'}}>{{text}}</option>
+								{{/each}}
+							</select>
+						</div>
+						<div class="input-field col s4">
+							<input name="color" id="input_color" type="text">
+							<label for="input_color">Color</label>
+						</div>
+					</div>
+				{{/if}}
+				
+				{{#if showFurniture}}
+					<div class="row">
+				    <label>Type</label>
+				    <select name="type" id="input_type" class="browser-default">
+				      <option value="" selected>Any type</option>
+				     {{#with furnitureTypes}}
+								{{#each type}}
+									 <option value="{{this}}" {{isSelected 'type'}}>{{this}}</option>
+								{{/each}}
+				      {{/with}}
+				    </select>
+					</div>				
+					<div class="row">
+						<div class="input-field col s4">
+							<input name="dimWidth:number" id="input_width" type="number">
+							<label for="input_width">Width ( inch )</label>
+						</div>
+						<div class="input-field col s4">
+							<input name="dimHeight:number" id="input_height" type="number">
+							<label for="input_height">Height ( inch )</label>
+						</div>
+						<div class="input-field col s4">
+							<input name="dimLength:number" id="input_length" type="number">
+							<label for="input_length">Length ( inch )</label>
+						</div>
+					</div>
+				{{/if}}
+				
+				{{#if showShoes}}
+					<div class="row">
+						<div class="col s6">
+					    <label>Type</label>
+					    <select name="type" id="input_type" class="browser-default">
+					      <option value="" selected>Any type</option>
+					      {{#with shoesTypes}}
+									{{#each type}}
+										 <option value="{{this}}" {{isSelected 'type'}}>{{this}}</option>
+									{{/each}}
+					      {{/with}}
+					    </select>
+						</div>	
+						<div class="input-field col s6">
+							<input name="brand" id="input_brand" type="text">
+							<label for="input_brand">Brand</label>
+						</div>	
+					</div>		
+					<div class="row">
+						<div class="input-field col s4">
+							<input name="sizeNumber:number" id="input_size" type="number">
+							<label for="input_size">Size</label>
+						</div>
+						<div class="col s4">
+							<label>Sex</label>
+							<select name="sex" id="input_sex" class="browser-default">
+								<option value="" selected>Any sex</option>
+								{{#each sex}}
+									<option value="{{value}}" {{isSelectedValue 'sex'}}>{{text}}</option>
+								{{/each}}
+							</select>
+						</div>
+						<div class="input-field col s4">
+							<input name="color" id="input_color" type="text">
+							<label for="input_color">Color</label>
+						</div>
+					</div>
+				{{/if}}
+				
+				{{#if showKitchen}}
+					<div class="row">
+				    <label>Type</label>
+				    <select name="type" id="input_type" class="browser-default">
+				      <option value="" selected>Any type</option>
+				      {{#with kitchenTypes}}
+									{{#each type}}
+										 <option value="{{this}}" {{isSelected 'type'}}>{{this}}</option>
+									{{/each}}
+					      {{/with}}
+				    </select>
+					</div>	
+				{{/if}}
+				
+				{{#if showVehicle}}
+					<div class="row">
+						<div class="col s6">
+							<label>Type</label>
+					    <select name="type" id="input_type" class="browser-default">
+					      <option value="" selected>Any type</option>
+					      {{#with vehicleTypes}}
+									{{#each type}}
+										 <option value="{{this}}" {{isSelected 'type'}}>{{this}}</option>
+									{{/each}}
+					      {{/with}}
+					    </select>
+						</div>
+						<div class="input-field col s6">
+							<input name="make" id="input_make" type="text">
+							<label for="input_make">Make</label>
+						</div>
+					</div>
+					<div class="row">
+						<div class="input-field col s6">
+							<input name="year:number" id="input_year" type="number">
+							<label for="input_year">Year</label>
+						</div>
+						<div class="input-field col s6">
+							<input name="mileage:number" id="input_mileage" type="number">
+							<label for="input_mileage">Mileage</label>
+						</div>
+					</div>
+					<div class="row">
+						<div class="input-field col s4">
+							<input name="height:number" id="input_height" type="number">
+							<label for="input_height">Height (bike)</label>
+						</div>
+						<div class="input-field col s4">
+							<input name="length:number" id="input_length" type="number">
+							<label for="input_length">Length (bike)</label>
+						</div>
+						<div class="col s4">
+							<label>Speed</label>
+					    <select name="speed" id="input_speed" class="browser-default">
+					      <option value="" selected>Any speed</option>
+					      {{#each speed}}
+									<option value="{{value}}" {{isSelectedValue 'speed'}}>{{text}}</option>
+								{{/each}}
+					    </select>
+						</div>
+					</div>
+				{{/if}}
+				
+				{{#if showMisc}}
+					<div class="row">
+						<div class="col s12">
+							<label>Type</label>
+					    <select name="type" id="input_type" class="browser-default">
+					      <option value="" selected>Any type</option>
+					      {{#with miscTypes}}
+									{{#each type}}
+										 <option value="{{this}}" {{isSelected 'type'}}>{{this}}</option>
+									{{/each}}
+					      {{/with}}
+					    </select>
+						</div>
+					</div>
+				{{/if}}
+				</form>
+			</div>
+		</div>
+	</main>
+</template>

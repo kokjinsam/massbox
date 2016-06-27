@@ -1,0 +1,53 @@
+<template name="sellerDashboard">
+	<div class="komo-box__home-left">
+	{{#if currentUser}}
+		<ul>
+			<a href="{{pathFor route='seller.requests'}}"><li class="waves-effect waves"><i class="material-icons komo-side-nav__icon komo-red">access_time</i> <span class="komo-side-nav__list-normal">Requests</span> <span class="komo-pub-count {{hideRequestCount}}">{{getPublishedCount 'request-count'}}</span></li></a>
+			<a href="{{pathFor route='seller.messages'}}"><li class="waves-effect waves"><i class="material-icons komo-side-nav__icon komo-blue">mail</i> <span class="komo-side-nav__list-normal">Messages</span> <span class="komo-pub-count {{hideMessageCount}}">{{getPublishedCount 'message-count'}}</span></li></a>
+			<a href="{{pathFor route='seller.items'}}"><li class="waves-effect waves"><i class="material-icons komo-side-nav__icon komo-orange">list</i> <span class="komo-side-nav__list-normal">Items</span></li></a>
+			<a href="{{pathFor route='home'}}"><li class="waves-effect waves"><i class="material-icons komo-side-nav__icon komo-lime">shopping_basket</i> <span class="komo-side-nav__list-normal">Switch to Buyer</span></li></a>
+			<div class="divider"></div>
+			<a href="{{pathFor route='about'}}"><li class="waves-effect waves">About</li></a>
+			<a href="{{pathFor route='faq'}}"><li class="waves-effect waves">FAQ</li></a>
+			<a href="#" id="meteor-logout"><li class="waves-effect waves">Logout</li></a>
+		</ul>
+	{{else}}
+		<ul>
+			<a href="{{pathFor route='about'}}"><li class="waves-effect waves"><i class="material-icons komo-side-nav__icon komo-red">explore</i> <span class="komo-side-nav__list-normal">About MassBox</span></li></a>
+			<a href="{{pathFor route='faq'}}"><li class="waves-effect waves"><i class="material-icons komo-side-nav__icon komo-green">question_answer</i> <span class="komo-side-nav__list-normal">FAQ</span></li></a>
+			<a href="{{pathFor route='user.signIn'}}"><li class="waves-effect waves"><i class="material-icons komo-side-nav__icon komo-blue">lock_outline</i> <span class="komo-side-nav__list-normal">Sign In</span></li></a>
+			<a href="{{pathFor route='user.signUp'}}"><li class="waves-effect waves"><i class="material-icons komo-side-nav__icon komo-lime">perm_identity</i> <span class="komo-side-nav__list-normal">Sign Up</span></li></a>
+		</ul>
+	{{/if}}
+	</div>
+		
+	<div class="komo-box__home-center">
+		<div class="komo-box__flex">
+			<div class="komo-request-card z-depth-1">
+				<div class="komo-request-card__content komo-request-card__content-extras komo-background__mountain-3">
+					<span class="komo-request-card__stamp">You have {{getPublishedCount 'item-count'}} listed items. Post your unused or unwanted items to get earn some cash!</span>
+				</div>
+				<div class="divider"></div>
+				<div class="komo-request-card__action">
+					<a href="{{pathFor route='seller.items'}}">
+						<i class="material-icons">add</i>
+						Add items
+					</a>
+				</div>
+			</div>
+			
+			<div class="komo-request-card z-depth-1">
+				<div class="komo-request-card__content komo-request-card__content-extras komo-background__mountain-2">
+					<span class="komo-request-card__stamp">You have {{getPublishedCount 'request-count'}} requests <span class="{{showMessage}}">Don't be sad. Requests will be coming in soon!</span></span>
+				</div>
+				<div class="divider"></div>
+				<div class="komo-request-card__action">
+					<a href="{{pathFor route='seller.requests'}}">
+						<i class="material-icons">arrow_forward</i>
+						View requests
+					</a>
+				</div>
+			</div>
+		</div>
+	</div>	
+</template>

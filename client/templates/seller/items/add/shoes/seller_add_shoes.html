@@ -1,0 +1,49 @@
+<template name="sellerAddShoes">
+	<p><b>Additional Shoes Information</b></p>
+	<div class="row">
+		<div class="col s6">
+	    <label>Type</label>
+	    <select name="type" id="input_type" class="browser-default">
+	      <option value="" disabled selected>Choose a type</option>
+	      <option value="sneakers">Sneakers</option>
+	      <option value="running">Running</option>
+	      <option value="boots">Boots</option>
+	      <option value="high heels">High Heels</option>
+	      <option value="others">Others</option>
+	    </select>
+		</div>	
+		<div class="input-field col s6">
+			<input name="brand" id="input_brand" type="text">
+			<label for="input_brand">Brand</label>
+		</div>	
+	</div>		
+	<div class="row">
+		<div class="input-field col s4">
+			<input name="sizeNumber:number" id="input_size" type="number">
+			<label for="input_size">Size</label>
+		</div>
+		<div class="col s4">
+			<label>Sex</label>
+			<select name="sex" id="input_sex" class="browser-default">
+				<option value="" disabled selected>Choose sex</option>
+				<option value="male">Male</option>
+				<option value="female">Female</option>
+				<option value="unisex">Unisex</option>
+			</select>
+		</div>
+		<div class="input-field col s4">
+			<input name="color" id="input_color" type="text">
+			<label for="input_color">Color</label>
+		</div>
+	</div>
+	<div id="komo__other-type" class="modal">
+		<div class="modal-content">      
+			<div class="input-field">
+				<input id="input_other" type="text" placeholder="Please specify the shoes type">
+			</div>
+      <div class="modal-footer">
+				<a href="#!" id="komo__other-type-add" class=" modal-action modal-close waves-effect waves-green btn-flat">Add</a>
+			</div>
+   </div>
+	</div>
+</template>

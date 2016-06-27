@@ -1,0 +1,93 @@
+.komo-request__field {
+	font-size:16px;
+	width:60%;
+	display:inline-block;
+	margin:8px 0;
+	font-weight:600;
+}
+
+.komo-request__value {
+	width:35%;
+}
+
+.komo-request__item {
+	width:100%;
+}
+
+.komo-request__input-item {
+	margin-left:16px;
+}
+
+.komo-request__input-value {
+	padding-left:20%;
+}
+
+.komo-request__input-label {
+	vertical-align:middle;
+}
+
+.komo-request__label {
+	width:60%;
+	padding-left:16px;
+	display:inline-block;
+}
+
+.komo-request__label-value {
+	width:35%;
+}
+
+.komo-request__button {
+	width:100%;
+	max-width:250px;
+	margin:8px auto;
+	display:block;
+}
+
+.komo-request__seller-info {
+	margin:8px 0 8px 32px;
+}
+
+.komo-request__seller-pic {
+	height:80px;
+	width:80px;
+	display:inline-block;
+	vertical-align:middle;
+}
+
+.komo-request__seller-name {
+	display:inline-block;
+	vertical-align:middle;
+	margin-left:16px;
+}
+
+.komo-request__title {
+	margin-top:30%;
+	color:white;
+	text-align:center;
+	font-size:2.5em;
+}
+
+.komo-request__form {
+	margin-top:16px;
+}
+
+.komo-request__form .input-field label {
+	color:white;
+}
+
+.komo-request__form input {
+	color:white;
+}
+
+.komo-request__form input[type=text]:focus + label,
+.komo-request__form input[type=date]:focus + label,
+.komo-request__form input[type=time]:focus + label {
+	color:white;
+}
+
+.komo-request__form input[type=text]:focus,
+.komo-request__form input[type=date]:focus,
+.komo-request__form input[type=time]:focus {
+	border-bottom: 1px solid white;
+	color:white;
+}

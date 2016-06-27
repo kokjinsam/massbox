@@ -1,0 +1,98 @@
+<template name="requestDetail">
+		<span class="komo-request__field {{isEmpty method}}">Method</span>
+		<span class="komo-request__value {{isEmpty method}}">{{method}}</span>
+		
+		<span class="komo-request__field">Status</span>
+		<span class="komo-request__value">{{formatStatus status delivered}}</span>
+		
+		<div class="divider"></div>
+		
+		<div class="komo-request-card__action {{isEmpty place}}">
+			<i class="material-icons">place</i>
+			<span class="komo-request-card__desc">
+				{{place}}
+			</span>
+		</div>
+		<div class="komo-request-card__action {{isEmpty date}}">
+			<i class="material-icons">event</i>
+			<span class="komo-request-card__desc">
+				{{date}}
+			</span>
+		</div>
+		<div class="komo-request-card__action {{isEmpty time}}">
+			<i class="material-icons">access_time</i>
+			<span class="komo-request-card__desc">
+				{{time}}
+			</span>
+		</div>
+		
+		<div class="divider"></div>
+		
+		{{#if isSeller}}
+			<span class="komo-request__field">Buyer Information</span>
+			
+			<div class="komo-request__seller-info">
+				<img src="https://randomuser.me/api/portraits/lego/0.jpg" alt="" class="circle responsive-img komo-request__seller-pic">
+				<span class="komo-request__seller-name">
+					{{formatName buyer}} <br>
+					<!--{{#linkTo route='profile' _id=seller}}view profile{{/linkTo}}-->
+				</span>
+			</div>
+		{{else}}
+			<span class="komo-request__field">Seller Information</span>
+			
+			<div class="komo-request__seller-info">
+				<img src="https://randomuser.me/api/portraits/lego/0.jpg" alt="" class="circle responsive-img komo-request__seller-pic">
+				<span class="komo-request__seller-name">
+					{{formatName seller}} <br>
+					<!--{{#linkTo route='profile' _id=buyer}}view profile{{/linkTo}}-->
+				</span>
+			</div>
+		{{/if}}
+	
+	<div class="komo-nav-spacer"></div>
+	<a class="komo-button__full-width waves-light waves-effect modal-trigger {{hideCancel}}" href="#cancel">cancel request</a>
+	<a class="komo-button__full-width waves-light waves-effect modal-trigger {{showRespond}}" href="#respond">respond to request</a>
+	<a class="komo-button__full-width waves-light waves-effect modal-trigger {{showDelivered}}" href="#delivered">mark as delivered</a>
+	
+	<div id="cancel" class="modal">
+		<div class="modal-content">
+			<h5>Cancel Request</h5>
+			<p>Are you sure? Your fellow Gopher will be very disappointed! sad! How could you?!</p>
+		</div>
+		<div class="modal-footer">
+			<a href="#!" id="cancel-request" class=" modal-action waves-effect waves-green btn-flat">yes</a>
+			<a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">No</a>
+		</div>
+	</div>
+
+	<div id="respond" class="modal">
+		<form id="make-decision">
+			<div class="modal-content">
+				<p>Your fellow Gopher needs your wise decision. Should you accept or decline this request.</p>
+					<p>
+						<input class="with-gap" name="status" type="radio" value="accepted" id="input_accept"/>
+						<label for="input_accept">Accept</label>
+					</p>
+					<p>
+						<input class="with-gap" name="status" type="radio" value="declined" id="input_decline"/>
+						<label for="input_decline">Decline</label>
+					</p>
+			</div>
+			<div class="modal-footer">
+				<button class="modal-action waves-effect waves-green btn-flat" type="submit">Done</button>
+			</div>
+		</form>
+	</div>
+	
+	<div id="delivered" class="modal">
+		<div class="modal-content">
+			<h5>Mark as Delivered</h5>
+			<p>Your items will be marked as 'sold'.</p>
+		</div>
+		<div class="modal-footer">
+			<a href="#!" id="deliver-request" class=" modal-action waves-effect waves-green btn-flat">yes</a>
+			<a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">cancel</a>
+		</div>
+	</div>
+</template>

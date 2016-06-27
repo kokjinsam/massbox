@@ -1,0 +1,39 @@
+<template name="onboarding">
+	<div class="komo-box__center komo-box__full-height">
+		<a href="{{pathFor route='home'}}" class="komo-onboard__done {{showDone}}">done</a>
+		<a href="{{pathFor route='home'}}" class="komo-onboard__skip {{hideSkip}}">skip</a>
+		<span class="komo-onboard__next {{hideNext}}" id="next"><i class="material-icons">arrow_forward</i></span>
+		<span class="komo-onboard__back {{hideBack}}" id="back"><i class="material-icons">arrow_back</i></span>
+		<span class="komo-onboard__counter">{{counter}} of 4</span>
+		{{#if showPage1}}
+			<img src="/screenshot/filter.png" class="circle responsive-img komo-onboard__img" height="200" width="200"/>
+			<span class="komo-onboard__title">Filter Items</span>
+			<span class="komo-onboard__desc">
+				Filter items by brand, color, size, gender, category, etc...<br>
+				Never have to scroll and scroll to no avail. 
+			</span>
+		{{/if}}
+		
+		{{#if showPage2}}
+			<img src="/screenshot/request.png" class="circle responsive-img komo-onboard__img" height="200" width="200"/>
+			<span class="komo-onboard__title">Send Requests</span>
+			<span class="komo-onboard__desc">
+				Find items and schedule for meetups right away. No more bidding or waiting.
+			</span>
+		{{/if}}
+		
+		{{#if showPage3}}
+			<img src="/screenshot/message.png" class="circle responsive-img komo-onboard__img" height="200" width="200"/>
+			<span class="komo-onboard__title">Real-time Message</span>
+			<span class="komo-onboard__desc">
+				Send real-time messages when you have questions.
+				Never have to use FB Messaging again and thus, more privacy for you. 
+			</span>
+		{{/if}}
+		
+		{{#if showPage4}}
+			<span class="komo-onboard__thumb-up"><i class="material-icons">thumb_up</i></span>
+			<span class="komo-onboard__title">Finished! Let's Go!</span>
+		{{/if}}
+	</div>
+</template>

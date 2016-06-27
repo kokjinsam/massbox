@@ -1,0 +1,81 @@
+.komo-onboard__next,
+.komo-onboard__back,
+.komo-onboard__counter,
+.komo-onboard__done {
+	position:absolute;
+	bottom:16px;
+	font-size:24px;
+	color:#FFF;
+	cursor:pointer;
+}
+
+.komo-onboard__next {
+	right:16px;
+	cursor:pointer;
+}
+
+.komo-onboard__back {
+	left:16px;
+	cursor:pointer;
+}
+
+.komo-onboard__counter {
+	font-size:16px;
+	width:90%;
+	margin:0 auto;
+	text-align:center;
+	z-index:-1;
+}
+
+.komo-onboard__done,
+.komo-onboard__skip {
+	font-size:16px;
+	font-weight:800;
+	text-transform:uppercase;
+	right:16px;
+}
+
+.komo-onboard__skip {
+	position:absolute;
+	top:16px;
+	color:#FFF;
+}
+
+.komo-onboard__next i,
+.komo-onboard__back i {
+	vertical-align:middle;
+}
+
+.komo-onboard__title {
+	font-size:24px;
+	display:block;
+	text-align:center;
+	color:#FFF;
+	margin-top:32px;
+}
+
+.komo-onboard__img {
+	display:block;
+	margin:30% auto 24px auto;
+}
+
+.komo-onboard__thumb-up {
+	display:block;
+	margin:80px 0 24px 0;
+	margin-left:30%;
+}
+
+.komo-onboard__thumb-up i {
+	font-size:200px;
+	color:white;
+	margin:0 auto;
+}
+
+.komo-onboard__desc {
+	display:block;
+	text-align:center;
+	color:#FFF;
+	font-size:16px;
+	width:70%;
+	margin:16px auto 0 auto;
+}

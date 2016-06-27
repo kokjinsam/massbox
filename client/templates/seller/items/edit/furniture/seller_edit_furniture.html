@@ -1,0 +1,36 @@
+<template name="sellerEditFurniture">
+	<p><b>Additional Furniture Information</b></p>
+	<div class="row">
+    <label>Type</label>
+    <select name="type" id="input_type" class="browser-default">
+      <option value="" disabled selected>Choose a type</option>
+      {{#each type}}
+				<option value="{{value}}" {{selected value ../product.type}}>{{text}}</option>
+			{{/each}}
+    </select>
+	</div>				
+	<div class="row">
+		<div class="input-field col s4">
+			<input name="dimWidth:number" value="{{product.dimWidth}}" id="input_width" type="number">
+			<label class="active" for="input_width">Width ( inch )</label>
+		</div>
+		<div class="input-field col s4">
+			<input name="dimHeight:number" value="{{product.dimHeight}}" id="input_height" type="number">
+			<label class="active" for="input_height">Height ( inch )</label>
+		</div>
+		<div class="input-field col s4">
+			<input name="dimLength:number" value="{{product.dimLength}}" id="input_length" type="number">
+			<label class="active" for="input_length">Length ( inch )</label>
+		</div>
+	</div>
+	<div id="komo__other-type" class="modal">
+		<div class="modal-content">      
+			<div class="input-field">
+				<input id="input_other" type="text" placeholder="Please specify the furniture type">
+			</div>
+      <div class="modal-footer">
+				<a href="#!" id="komo__other-type-add" class=" modal-action modal-close waves-effect waves-green btn-flat">Add</a>
+			</div>
+   </div>
+	</div>
+</template>

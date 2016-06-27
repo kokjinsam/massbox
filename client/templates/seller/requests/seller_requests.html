@@ -1,0 +1,144 @@
+<template name="sellerRequests">
+	<main>
+	  <div id="currentRequest" class="komo-box__flex">
+			{{#if Template.subscriptionsReady}}
+				{{#if noCurrentRequests}}
+					No Current Requests.
+				{{else}}
+					{{#each currentRequests}}
+						<div class="komo-request-card z-depth-1">
+							<div class="komo-request-card__content">
+								<span class="komo-request-card__title">Meeting with {{formatName buyer}}</span>
+								
+								<span class="komo-request-card__field">Total items requested</span>
+								<span class="komo-request-card__value">{{itemCount items}}</span>
+								
+								<span class="komo-request-card__field">Status</span>
+								<span class="komo-request-card__value">{{formatStatus status delivered}}</span>
+							</div>
+							
+							<div class="divider"></div>
+							
+							<div class="komo-request-card__action {{isEmpty 'place'}}">
+								<i class="material-icons">place</i>
+								<span class="komo-request-card__desc">
+									{{place}}
+								</span>
+							</div>
+							<div class="komo-request-card__action {{isEmpty 'date'}}">
+								<i class="material-icons">event</i>
+								<span class="komo-request-card__desc">
+									{{date}}
+								</span>
+							</div>
+							<div class="komo-request-card__action {{isEmpty 'time'}}">
+								<i class="material-icons">access_time</i>
+								<span class="komo-request-card__desc">
+									{{time}}
+								</span>
+							</div>
+							
+							<div class="divider"></div>
+							
+							<div class="komo-request-card__action">
+								<a href="{{pathFor route='seller.requests.view'}}">
+								<i class="material-icons">arrow_forward</i>
+								More information
+								</a>
+							</div>
+						</div>
+					{{/each}}
+				{{/if}}
+			{{else}}
+				{{> loading}}
+			{{/if}}
+	  </div>
+	  
+    <div id="pendingRequest" class="komo-box__flex">
+			{{#if Template.subscriptionsReady}}
+				{{#if noPendingRequests}}
+					No Pending Requests.
+				{{else}}
+					{{#each pendingRequests}}
+						<div class="komo-request-card z-depth-1">
+							<div class="komo-request-card__content">
+								<span class="komo-request-card__title">Meeting with {{formatName buyer}}</span>
+								
+								<span class="komo-request-card__field">Total items requested</span>
+								<span class="komo-request-card__value">{{itemCount items}}</span>
+								
+								<span class="komo-request-card__field">Status</span>
+								<span class="komo-request-card__value">{{formatStatus status delivered}}</span>
+							</div>
+							
+							<div class="divider"></div>
+							
+							<div class="komo-request-card__action {{isEmpty 'place'}}">
+								<i class="material-icons">place</i>
+								<span class="komo-request-card__desc">
+									{{place}}
+								</span>
+							</div>
+							<div class="komo-request-card__action {{isEmpty 'date'}}">
+								<i class="material-icons">event</i>
+								<span class="komo-request-card__desc">
+									{{date}}
+								</span>
+							</div>
+							<div class="komo-request-card__action {{isEmpty 'time'}}">
+								<i class="material-icons">access_time</i>
+								<span class="komo-request-card__desc">
+									{{time}}
+								</span>
+							</div>
+							
+							<div class="divider"></div>
+							
+							<div class="komo-request-card__action">
+								<a href="{{pathFor route='seller.requests.view'}}">
+								<i class="material-icons">arrow_forward</i>
+								More information
+								</a>
+							</div>
+						</div>
+					{{/each}}
+				{{/if}}
+			{{else}}
+				{{> loading}}
+			{{/if}}
+    </div>
+    
+    <div id="pastRequest" class="komo-box__flex">
+			{{#if Template.subscriptionsReady}}
+				{{#if noPastRequests}}
+					No Past Requests.
+				{{else}}
+					{{#each pastRequests}}
+						<div class="komo-request-card z-depth-1">
+							<div class="komo-request-card__content">
+								<span class="komo-request-card__title">Meeting with {{formatName buyer}}</span>
+								
+								<span class="komo-request-card__field">Total items requested</span>
+								<span class="komo-request-card__value">{{itemCount items}}</span>
+								
+								<span class="komo-request-card__field">Status</span>
+								<span class="komo-request-card__value">{{formatStatus status delivered}}</span>
+							</div>
+							
+							<div class="divider"></div>
+							
+							<div class="komo-request-card__action">
+								<a href="{{pathFor route='seller.requests.view'}}">
+								<i class="material-icons">arrow_forward</i>
+								More information
+								</a>
+							</div>
+						</div>
+					{{/each}}
+				{{/if}}
+			{{else}}
+				{{> loading}}
+			{{/if}}
+    </div>
+  </main>
+</template>

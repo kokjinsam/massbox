@@ -1,0 +1,28 @@
+<template name="messages">
+	<div class="komo-box__center">
+		{{#if subReady}}	
+			{{#if noRooms}}
+				No messages.
+			{{else}}
+				{{#each rooms}}
+					{{#linkTo route='messages.view'}}
+					<div class="komo-message__wrapper waves-effect waves">
+						<img src="https://randomuser.me/api/portraits/lego/0.jpg" alt="" class="circle responsive-img komo-message__pic">
+						<div class="komo-message__inner-wrapper">
+							{{#if isSeller}}
+								<span class="komo-message__name">{{formatName buyer}} <span class="komo-message__preview-status {{isNew _id}}"><i class="material-icons">lens</i></span></span>
+							{{else}}
+								<span class="komo-message__name">{{formatName seller}} <span class="komo-message__preview-status {{isNew _id}}"><i class="material-icons">lens</i></span></span>
+							{{/if}}
+							<span class="komo-message__preview truncate">{{findMsg _id}}</span>
+						</div>
+					</div>
+					{{/linkTo}}
+					<div class="divider"></div>
+				{{/each}}
+			{{/if}}
+		{{else}}
+			{{> loading}}
+		{{/if}}
+	</div>
+</template>

@@ -1,0 +1,102 @@
+<template name="sellerAddItem">
+	<div class="komo-box__center">
+		<p><b>Basic Information</b></p>
+		<form id="item-form">
+			<div class="row">
+		    <label>Category*</label>
+		    <select name="category" id="input_category" class="browser-default">
+		      <option value="" disabled selected>Choose category</option>
+		      <option value="books">Books</option>
+		      <option value="electronics">Electronics</option>
+		      <option value="furniture">Furniture</option>
+		      <option value="clothing">Clothing</option>
+		      <option value="shoes">Shoes</option>
+		      <option value="kitchen">Kitchenware</option>
+		      <option value="vehicle">Vehicle</option>
+		      <option value="misc">Miscellaneous</option>
+		    </select>
+			</div>
+			<div class="row">
+				<div class="col s6">
+			    <label>Item Handling*</label>
+			    <select name="method" id="input_method" class="browser-default">
+			      <option value="" disabled selected>Choose option</option>
+			      <option value="pick up">Pick up</option>
+			      <option value="meet up">Meet up</option>
+			      <option value="drop off">Drop off</option>
+			    </select>
+				</div>
+        <div class="col s6">
+          <label>Item Condition*</label>
+          <select name="condition" id="input_condition" class="browser-default">
+			      <option value="" disabled selected>Select one</option>
+			      <option value="new">New</option>
+			      <option value="like new">Used - Like New</option>
+			      <option value="very good">Used - Very Good</option>
+			      <option value="good">Used - Good</option>
+			      <option value="acceptable">Used - Acceptable</option>
+			    </select>
+        </div>
+			</div>
+			<div class="row">
+        <div class="col s6">
+					<label>Number of Times Used*</label>
+					<select name="numberOfTimesUsed" id="input_numberOfTimesUsed" class="browser-default">
+			      <option value="" disabled selected>Select one</option>
+			      <option value="less than 5">Less than 5</option>
+			      <option value="less than 15">Less than 15</option>
+			      <option value="less than 45">Less than 45</option>
+			      <option value="more than 100">More than 100</option>
+			      <option value="uncountable">Uncountable</option>
+			    </select>
+				</div>
+				<div class="input-field col s6">
+					<input id="input_price" name="price:number" type="number">
+					<label for="input_price">Price*</label>
+				</div>	
+			</div>
+			
+			<div class="input-field">
+				<textarea name="notes" id="input_notes" class="materialize-textarea" length="120"></textarea>
+         <label for="input_notes">Addtional Notes</label>
+			</div>
+			
+			<div class="input-field">
+				<input id="input_status" value="unlisted" name="status" type="hidden">
+				<label for="input_status"></label>
+			</div>
+				{{#if showBooks}}
+					{{> sellerAddBooks}}
+				{{/if}}
+				
+				{{#if showElectronics}}
+					{{> sellerAddElectronics}}
+				{{/if}}
+				
+				{{#if showFurniture}}
+					{{> sellerAddFurniture}}
+				{{/if}}
+				
+				{{#if showClothing}}
+					{{> sellerAddClothing}}
+				{{/if}}
+				
+				{{#if showShoes}}
+					{{> sellerAddShoes}}
+				{{/if}}
+				
+				{{#if showKitchen}}
+					{{> sellerAddKitchen}}
+				{{/if}}
+				
+				{{#if showVehicle}}
+					{{> sellerVehicle}}
+				{{/if}}
+				
+				{{#if showMisc}}
+					{{> sellerMisc}}
+				{{/if}}
+				<button type="submit" class="btn-flat waves-effect waves komo-button__bottom-right-unsticky">Save Item &amp; Add Pictures <i class="material-icons">chevron_right</i></button>
+		</form>
+	</div>
+</template>

@@ -1,0 +1,27 @@
+<template name="signUp">
+	<div class="komo-box__center">
+		<a href="{{pathFor route='home'}}" class="komo-user__logo">MassBox</a>
+		<form class="komo-user__form" id="sign-up">
+			<div class="row">
+				<div class="input-field col s6">
+					<input id="email" type="email" class="validate">
+					<label for="email">School Email</label>
+				</div>
+				<div class="input-field col s6">
+					<input id="name" type="text">
+					<label for="name">Name</label>
+				</div>
+			</div>
+			<div class="input-field">
+				<input id="password" type="password">
+				<label for="password">Password</label>
+			</div>
+			<div class="input-field">
+				<input id="confirm-password" type="password">
+				<label for="confirm-password">Confirm Password</label>
+			</div>
+			<button class="right btn waves-effect waves" style="display:block; color:white; margin-top:16px;" type="submit">sign up</button>
+    </form>
+    <a href="{{pathFor route='user.signIn'}}" style="display:block; margin-top:16px;">Already have an account? Sign in here.</a>
+	</div>
+</template>

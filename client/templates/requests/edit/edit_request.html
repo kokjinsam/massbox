@@ -1,0 +1,69 @@
+<template name="editRequest">
+	<main>
+	<div class="komo-box__center">
+		{{#if isEmptySub}}
+			{{> error}}
+		{{else}}
+			{{#if editNotAllowed}}
+				Not Allowed to Edit
+			{{else}}
+				<span class="komo-request__field">Items requested</span>
+				<form id="edit-request">
+				{{#with request}}
+					{{#each products}}
+						<div class="komo-request__input-item">
+							<input type="checkbox" name="items[]" value="{{_id}}" id="check_checkbox_{{_id}}" checked class="filled-in"/>
+							<label for="check_checkbox_{{_id}}" class="komo-request__input-label"></label>
+							<span>{{#linkTo route='item'}}Item{{/linkTo}}</span>
+							<span class="komo-request__input-value">&#36;{{price}}</span>
+						</div>
+					{{/each}}
+					
+					<div class="divider" style="margin-top:8px;"></div>
+					
+					<span class="komo-request__field">Status</span>
+					<span class="komo-request__value">{{formatStatus status delivered}}</span>
+				{{/with}}
+				<div class="divider"></div>
+				
+					<div class="komo-request-card__action-edit">
+						<i class="material-icons">local_shipping</i>
+						<div class="input-field komo-request-card__desc">
+					    <select name="method" id="input_method" class="browser-default">
+								<option value="" disabled selected>Choose option</option>
+								{{#each methodOption}}
+									<option value="{{value}}" {{isSelected value request.method}}>{{text}}</option>
+								{{/each}}
+							</select>
+					  </div>
+					</div>
+					
+					<div class="komo-request-card__action-edit">
+						<i class="material-icons">place</i>
+						<span class="komo-request-card__desc input-field">
+							<input value="{{request.place}}" name="place" id="input_place" type="text">
+							<label class="active" for="input_place">Place to meet</label>
+						</span>
+					</div>
+				
+					<div class="komo-request-card__action-edit">
+						<i class="material-icons">event</i>
+						<span class="komo-request-card__desc input-field">
+							<input value="{{request.date}}" name="date" id="input_date" type="date" class="datepicker">
+							<label class="active" for="input_date">Date to meet</label>
+						</span>
+					</div>
+					<div class="komo-request-card__action-edit">
+						<i class="material-icons">access_time</i>
+						<span class="komo-request-card__desc input-field">
+							<input value="{{request.time}}" name="time" id="input_time" type="time">
+							<label class="active" for="input_time">Time to meet</label>
+						</span>
+					</div>
+					<button class="btn-flat komo-button__top-right" type="submit">Save</button>
+				</form>
+			{{/if}}
+		{{/if}}
+	</div>
+	</main>
+</template>

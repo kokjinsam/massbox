@@ -1,0 +1,13 @@
+<template name="soldItems">
+	{{#if Template.subscriptionsReady}}
+		{{#if noProducts}}
+			No Items Yet.
+		{{else}}
+			{{#each products}}
+				{{> productList}}
+			{{/each}}
+		{{/if}}
+	{{else}}
+		{{> loading}}
+	{{/if}}
+</template>

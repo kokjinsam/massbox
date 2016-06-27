@@ -1,0 +1,276 @@
+.komo-item__picture {
+	height:250px;
+}
+
+.komo-item__picture img{
+	width:100%;
+}
+
+.komo-item__detail {
+	width:100%;
+	position:relative;
+	display:block;
+	padding:8px;
+	order:2;
+}
+
+.komo-item__seller {
+	width:100%;
+	padding:8px;
+	order:3;
+	background:#FFFFFF;
+	margin-top:8px;
+	position:relative;
+}
+
+.komo-item__seller-pic {
+	display:inline-block;
+	margin:8px 16px 8px 32px;
+}
+
+.komo-item__seller-name {
+	display:inline-block;
+	vertical-align:top;
+	font-size:16px;
+	margin-top:16px;
+}
+
+.komo-item__seller-name span {
+	font-weight:800;
+	color:#000000;
+	opacity:0.54;
+}
+
+.komo-item__button {
+	position:absolute;
+	top:-24px; 
+	right:16px;
+}
+
+.komo-item__edit {
+	position:absolute;
+	top:40px;
+	right:32px;
+}
+
+.komo-item__price {
+	font-size:3em;
+	font-weight:400;
+	margin:32px 0px 0px 32px;
+	display:block;
+}
+
+.komo-item__not-available {
+	display:block;
+	padding:8px;
+	margin:16px 0px 0px 32px;
+	background:#F44336;
+	text-align:center;
+	color:#FFF;
+}
+
+.komo-item__not-available i {
+	vertical-align:middle;
+}
+
+.komo-item__method {
+	display:block;
+	margin:8px 0px 0px 32px;
+}
+
+.komo-item__method i {
+	vertical-align:middle;
+}
+
+.komo-item__method span {
+	text-transform:uppercase;
+	padding:4px;
+	margin-right:8px;
+}
+
+.komo-item__description {
+	margin:0px 0px 0px 16px;
+	color:#000000;
+	font-size:1.1em;
+	opacity:0.87;
+}
+
+.komo-item__description span {
+	font-style:italic;
+	text-decoration:underline;
+}
+
+.komo-item__title {
+	margin:32px 0px 8px 24px;
+	display:block;
+	font-size:1em;
+	font-weight:800;
+	color:#000000;
+	opacity:0.54;
+}
+
+.komo-item__tags {
+	display:block;
+	margin:32px 0px 16px 16px;
+	font-size:1.1em;
+}
+
+.komo-item__tags i {
+	vertical-align:middle;
+}
+
+.komo-item__info {
+	margin-left:16px;
+	display:block;
+	font-size:1.1em;
+	color:#000000;
+	opacity:0.87;
+}
+
+.komo-item__message {
+	padding:8px;
+	position:absolute;
+	right:24px;
+	top:24px;
+	color:#000000;
+	opacity:0.87;
+}
+
+.komo-item__message i{
+	vertical-align:middle;
+	font-size:2.2em;
+}
+/*
+ * Media Queries
+ */
+@media screen and (min-width:300px) and (max-width:400px) {
+	.komo-item__picture {
+		height:200px;
+	}
+}
+
+@media screen and (min-width:500px) and (max-width:599px) {
+	.komo-item__picture {
+		height:300px;
+	}
+	
+	.komo-item__button {
+		right:32px;
+	}
+	
+	.komo-item__edit {
+		right:48px;
+	}
+}
+
+@media screen and (min-width: 600px) {
+	.komo-box__flex-no-padding {
+		max-width:600px;
+		height:300px;
+	}
+	
+	.komo-item__spacer {
+		width:100%;
+		height:55px;
+		display:block;
+	}
+	
+	.komo-item__picture {
+		width:45%;
+		height:152px;
+		order:1;
+	}
+	
+	.komo-item__picture img {
+		height:152px;
+	}
+	
+	.komo-item__detail {
+		width:55%;
+		order:3;
+	}
+	
+	.komo-item__seller {
+		width:45%;
+		order:2;
+	}
+	
+	.komo-item__button {
+		top:-16px;
+		right:0px;
+	}
+	
+	.komo-item__edit {
+		top:0px;
+		right:72px;
+	}
+}
+
+@media screen and (min-width:700px) {
+	.komo-box__flex-no-padding {
+		max-width:700px;
+		height:300px;
+	}
+	
+	.komo-item__picture {
+		width:45%;
+		height:177px;
+		order:1;
+	}
+	
+	.komo-item__picture img {
+		height:177px;
+	}
+	
+	.komo-item__info {
+		font-size:1.3em;
+	}
+	
+	.komo-item__title {
+		font-size:1.2em;
+	}
+	
+	.komo-item__description {
+		font-size:1.3em;
+	}
+}
+
+@media screen and (min-width: 850px) {
+	.komo-box__flex-no-padding {
+		max-width:800px;
+		height:400px;
+	}
+	
+	.komo-item__picture {
+		width:45%;
+		height:203px;
+		order:1;
+	}
+	
+	.komo-item__picture img {
+		height:203px;
+	}
+	
+	.komo-item__spacer {
+		width:100%;
+		height:100px;
+		display:block;
+	}
+}
+
+@media screen and (min-width: 1000px) {
+	.komo-box__flex-no-padding {
+		max-width:900px;
+		height:400px;
+	}
+	
+	.komo-item__picture {
+		width:45%;
+		height:228px;
+		order:1;
+	}
+	
+	.komo-item__picture img {
+		height:228px;
+	}
+}

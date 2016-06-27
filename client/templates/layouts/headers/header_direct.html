@@ -1,0 +1,16 @@
+<template name="headerDirect">
+	<div class="komo-fixed-nav">
+		<div class="{{setColor}} komo-nav-tab z-depth-1">
+			<div class="komo-nav-tab__title">
+				<a href="{{formatURL}}">
+					<div class="circle waves-effect waves-light"><i class="material-icons">arrow_back</i></div>
+					<span>{{title}}</span>
+				</a>
+				
+				<a href="#" class="right" style="margin-top:3px;">{{> yield 'rightButton'}}</a>
+			</div>
+		</div>
+  </div>
+  <div class="komo-nav-spacer"></div>
+</template>
+

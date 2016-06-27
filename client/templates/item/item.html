@@ -1,0 +1,136 @@
+<template name="item">
+	<div class="komo-item__spacer"></div>
+	{{#if Template.subscriptionsReady}}	
+		{{#with item}}
+		<div class="komo-box__flex-no-padding">
+			<div class="komo-item__picture waves-effect waves-light">
+				<img id="gallery" class="responsive-img" src="{{getOnePic pictures}}">
+			</div>
+			<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+		    <div class="pswp__bg"></div>
+		    <div class="pswp__scroll-wrap">
+		        <div class="pswp__container">
+		            <div class="pswp__item"></div>
+		            <div class="pswp__item"></div>
+		            <div class="pswp__item"></div>
+		        </div>
+		        <div class="pswp__ui pswp__ui--hidden">
+		            <div class="pswp__top-bar">
+		                <div class="pswp__counter"></div>
+		                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+		                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+		                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+		                <div class="pswp__preloader">
+		                    <div class="pswp__preloader__icn">
+		                      <div class="pswp__preloader__cut">
+		                        <div class="pswp__preloader__donut"></div>
+		                      </div>
+		                    </div>
+		                </div>
+		            </div>
+		            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+		                <div class="pswp__share-tooltip"></div> 
+		            </div>
+		            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+		            </button>
+		            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+		            </button>
+		            <div class="pswp__caption">
+		                <div class="pswp__caption__center"></div>
+		            </div>
+		        </div>
+		    </div>
+			</div>
+			<div class="komo-item__detail">
+				{{#if isOwner}}
+					{{#linkTo route='seller.items.edit' class='komo-item__edit'}}<i class="material-icons">edit</i>{{/linkTo}}
+				{{/if}}
+				
+				{{#if currentUser}}
+					<div class="komo-item__button">
+						<a id="request-button" class="btn-floating btn-large waves-effect waves-light red">
+							<i class="material-icons">schedule</i>
+						</a>
+					</div>
+				{{else}}
+					<a href="{{pathFor route='user.signIn'}}" class="waves-effect waves btn komo-item__button">Login to Request</a>
+				{{/if}}
+				
+				<span class="komo-item__price">${{price}}</span>
+				<span class="komo-item__method"><i class="material-icons">{{iconMethod method}}</i> <span>{{method}}</span> <i class="material-icons">visibility</i> <span>{{views}}</span></span>
+				
+				{{#if notAvailable}}
+					<span class="komo-item__not-available z-depth-2"><i class="material-icons">warning</i> This item is {{status}}!</span>
+				{{/if}}
+				
+				<span class="komo-item__title">About</span>
+				<p class="komo-item__description">
+					This item is in <span>{{condition}}</span> condition. It has been used
+					<span>{{numberOfTimesUsed}}</span> times. This item was posted on <span>{{formatDate createdAt}}</span>.
+				</p>
+	
+				<span class="{{isEmpty notes}} komo-item__title">Words from the seller</span>
+				<p class="{{isEmpty notes}} komo-item__description">{{notes}}</p>
+				
+				{{#if showBooks}}
+					<span class="komo-item__title">Additional Information</span>
+					<span class="komo-item__info {{isEmpty title}}">Book Title: {{title}}</span>
+					<span class="komo-item__info {{isEmpty classTitle}}">Class: {{classTitle}}</span>
+					<span class="komo-item__info {{isEmpty classTitle}}">Class Number: {{classNumber}}</span>
+				{{/if}}
+				
+				{{#if showElectronics}}
+					<span class="komo-item__title">Additional Information</span>
+					<span class="komo-item__info {{isEmpty dimLength}}">Length: {{dimLength}}</span>
+					<span class="komo-item__info {{isEmpty dimHeight}}">Height: {{dimHeight}}</span>
+					<span class="komo-item__info {{isEmpty dimWidth}}">Width: {{dimWidth}}</span>
+				{{/if}}
+				
+				{{#if showClothing}}
+					<span class="komo-item__title">Additional Information</span>
+					<span class="komo-item__info {{isEmpty sizeNumber}}">Size: {{size}}</span>
+					<span class="komo-item__info {{isEmpty sex}}">Gender: {{sex}}</span>
+					<span class="komo-item__info {{isEmpty color}}">Color: {{color}}</span>
+				{{/if}}
+				
+				{{#if showFurniture}}
+					<span class="komo-item__title">Additional Information</span>
+					<span class="komo-item__info {{isEmpty dimLength}}">Length: {{dimLength}}</span>
+					<span class="komo-item__info {{isEmpty dimHeight}}">Height: {{dimHeight}}</span>
+					<span class="komo-item__info {{isEmpty dimWidth}}">Width: {{dimWidth}}</span>
+				{{/if}}
+				
+				{{#if showShoes}}
+					<span class="komo-item__title">Additional Information</span>
+					<span class="komo-item__info {{isEmpty brand}}">Brand: {{brand}}</span>
+					<span class="komo-item__info {{isEmpty sizeNumber}}">Size: {{sizeNumber}}</span>
+					<span class="komo-item__info {{isEmpty sex}}">Gender: {{sex}}</span>
+					<span class="komo-item__info {{isEmpty color}}">Color: {{color}}</span>
+				{{/if}}
+				
+				{{#if showKitchen}}
+				{{/if}}
+				
+				{{#if showVehicle}}
+					<span class="komo-item__title">Additional Information</span>
+					<span class="komo-item__info {{isEmpty make}}">Make: {{make}}</span>
+					<span class="komo-item__info {{isEmpty year}}">Year: {{year}}</span>
+					<span class="komo-item__info {{isEmpty mileage}}">Mileage: {{mileage}}</span>
+					<span class="komo-item__info {{isEmpty height}}">Height(bike): {{height}}</span>
+					<span class="komo-item__info {{isEmpty length}}">Length(bike): {{length}}</span>
+					<span class="komo-item__info {{isEmpty speed}}">Speed: {{speed}}</span>
+				{{/if}}
+				
+				{{#if showMisc}}
+				{{/if}}
+				
+				<span class="komo-item__tags"><i class="material-icons">style</i> #{{category}} <span class="{{isEmpty type}}">#{{type}}</span></span>
+			</div>
+			
+			{{> sellerDetail}}
+		</div>
+		{{/with}}
+	{{else}}
+		{{> loading}}
+	{{/if}}
+</template>

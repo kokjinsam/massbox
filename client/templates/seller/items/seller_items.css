@@ -1,0 +1,73 @@
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+	-webkit-appearance: none;
+	margin:0;
+}
+
+input[type="file"] {
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+	background: #FFFFFF;
+	display:none;
+}
+
+.custom-file-upload {
+	text-align: center;
+  background: #FFFFFF;
+  color:#000000;
+  opacity:0.54;
+  margin:4px;
+  height:113px;
+	width:200px;
+	float:left;
+	cursor: pointer;
+	font-size:1.3em;
+	padding-top:40px;
+}
+
+.custom-file-upload i {
+	vertical-align:middle;
+}
+
+.custom-file-upload span {
+	text-transform:uppercase;
+}
+
+.selected-thumb {
+	position:relative;
+	text-align: center;
+	background: #FFFFFF;
+	margin:4px;
+	height:113px;
+	width:200px;
+	float:left;
+	overflow: hidden;
+}
+
+.komo-image__delete {
+	position:absolute; 
+	top:8px;
+	right:8px;
+	color:#000000;
+  opacity:0.38;
+  cursor: pointer;
+  font-size:32px;
+}
+
+/*
+ * Media Queries
+ */
+
+@media screen and (max-width:449px) {
+	.selected-thumb {
+		width:100%;
+		height:253px;
+	}
+	
+	.custom-file-upload {
+		width:100%;
+		height:253px;
+		padding-top:96px;
+	}
+}

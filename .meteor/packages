@@ -1,0 +1,33 @@
+# Meteor packages used by this project, one per line.
+# Check this file (and the other files in this directory) into your repository.
+#
+# 'meteor add' and 'meteor remove' will edit this file for you,
+# but you can also edit it by hand.
+
+meteor-platform
+iron:router
+accounts-base
+accounts-password
+check
+email
+aldeed:simple-schema
+alanning:roles
+reactive-var
+reactive-dict
+themeteorchef:jquery-validation
+pcel:serialize
+materialize:materialize
+momentjs:moment
+underscore
+audit-argument-checks
+manuelschoebel:ms-seo
+edgee:slingshot
+spectrum:photoswipe
+
+
+matb33:collection-hooks
+meteorhacks:aggregate
+meteorhacks:npm
+tmeasday:publish-counts
+mizzao:user-status
+meteorhacks:ssr

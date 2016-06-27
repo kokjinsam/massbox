@@ -1,0 +1,20 @@
+<template name="sellerDetail">
+	<div class="komo-item__seller">
+		<div class="komo-item__seller-pic">
+			<img src="https://randomuser.me/api/portraits/lego/0.jpg" alt="" class="circle responsive-img komo-side-nav__img">
+		</div>
+		<span class="komo-item__seller-name"><span>Seller</span><br>{{seller.name}}</span>
+		<a class="circle waves waves-effect komo-item__message modal-trigger" href="#modal1"><i class="material-icons">mail</i></a>
+	</div>
+	
+	<!-- Modal Structure -->
+  <div id="modal1" class="modal bottom-sheet">
+    <div class="modal-content">
+      <div class="input-field komo-message__send-text">
+				<input name="message" id="input_message" type="text" placeholder="Send message (max. 140 words)">
+				<label for="input_message"></label>
+			</div>
+			<a id="send-message" class="btn-floating btn-large waves-effect waves-light red komo-message__send-button"><i class="material-icons">send</i></a>
+    </div>
+  </div>
+</template>

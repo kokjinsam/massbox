@@ -1,0 +1,28 @@
+.komo-user__logo {
+	margin-top:20%;
+	margin-bottom:32px;
+	font-size:3em;
+	color:white;
+	text-align:center;
+	display:block;
+}
+
+.komo-user__form .input-field label {
+	color:white;
+}
+
+.komo-user__form .input-field input,
+.komo-user__form .input-field textarea {
+	border-bottom:1px solid white;
+	color:white;
+}
+
+.komo-user__form .input-field input:focus,
+.komo-user__form .input-field textarea:focus {
+	border-bottom:1px solid white;
+}
+
+.komo-user__form .input-field input:focus+label,
+.komo-user__form .input-field textarea:focus+label {
+	color:white;
+}

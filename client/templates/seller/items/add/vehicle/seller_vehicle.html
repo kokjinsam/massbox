@@ -1,0 +1,65 @@
+<template name="sellerVehicle">
+	<p><b>Additional Vehicle Information </b></p>
+	<div class="row">
+		<div class="col s6">
+			<label>Type</label>
+	    <select name="type" id="input_type" class="browser-default">
+	      <option value="" disabled selected>Choose a type</option>
+	      <option value="sedan">Sedan</option>
+	      <option value="sports car">Sports Car</option>
+	      <option value="mpv">MPV</option>
+	      <option value="truck">Truck</option>
+	      <option value="bike">Bike</option>
+	      <option value="scooter">Scooter</option>
+	      <option value="motorbike">Motorbike</option>
+	      <option value="others">Others</option>
+	    </select>
+		</div>
+		<div class="input-field col s6">
+			<input name="make" id="input_make" type="text">
+			<label for="input_make">Make</label>
+		</div>
+	</div>
+	<div class="row">
+		<div class="input-field col s6">
+			<input name="year:number" id="input_year" type="number">
+			<label for="input_year">Year</label>
+		</div>
+		<div class="input-field col s6">
+			<input name="mileage:number" id="input_mileage" type="number">
+			<label for="input_mileage">Mileage</label>
+		</div>
+	</div>
+	<div class="row">
+		<div class="input-field col s4">
+			<input name="height:number" id="input_height" type="number">
+			<label for="input_height">Height (bike)</label>
+		</div>
+		<div class="input-field col s4">
+			<input name="length:number" id="input_length" type="number">
+			<label for="input_length">Length (bike)</label>
+		</div>
+		<div class="col s4">
+			<label>Speed</label>
+	    <select name="speed" id="input_speed" class="browser-default">
+	      <option value="" disabled selected>Choose speed</option>
+	      <option value="single">Single speed</option>
+	      <option value="6">6 speed</option>
+	      <option value="9">9 speed</option>
+	      <option value="12">12 speed</option>
+	      <option value="24">24 speed</option>
+	      <option value="32">32 speed</option>
+	    </select>
+		</div>
+	</div>
+	<div id="komo__other-type" class="modal">
+		<div class="modal-content">      
+			<div class="input-field">
+				<input id="input_other" type="text" placeholder="Please specify vehicle type">
+			</div>
+      <div class="modal-footer">
+				<a href="#!" id="komo__other-type-add" class=" modal-action modal-close waves-effect waves-green btn-flat">Add</a>
+			</div>
+   </div>
+	</div>
+</template>

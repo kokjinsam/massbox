@@ -1,0 +1,27 @@
+<template name="editProfile">
+	<div class="komo-box__center">
+	<form id="edit-profile">
+	<table class="komo-custom-table">
+		<tr>
+			<th>Name</th>
+			<td>
+				<div class="input-field">
+					<input value="{{user.name}}" name="name" id="name" type="text" placeholder="Enter First Name">
+					<label for="name"></label>
+				</div>
+			</td>
+		</tr>
+		<tr>
+			<th>Date of Birth</th>
+			<td>
+				<div class="input-field">
+					<input value="{{dateOfBirth}}" name="dateOfBirth" id="dateOfBirth" type="text" placeholder="Enter Date of Birth" class="datepicker">
+					<label for="dateOfBirth"></label>
+				</div>
+			</td>
+		</tr>
+	</table>
+	<button class="btn-flat komo-button__top-right" type="submit"><i class="material-icons">done</i></button>
+	</form>
+	</div>
+</template>

@@ -1,0 +1,22 @@
+<template name="headerDirectTabs">
+	<div class="komo-fixed-nav">
+		<div class="{{setColor}} komo-nav-tab z-depth-1">
+			<div class="komo-nav-tab__title">
+				<a href="{{formatURL}}">
+				<div class="circle waves-effect waves-light"><i class="material-icons">arrow_back</i></div>
+				<span>{{title}}</span>
+				</a>
+			</div>
+			<ul class="tabs {{setColor}} komo-nav-tab__tabs">
+				{{> yield 'tabs'}}
+			</ul>
+		</div>
+  </div>
+  <div class="komo-nav-spacer__2"></div>
+</template>
+
+<template name="settingsTabs">
+	<li class="tab"><a class="active" href="#profile">Profile</a></li>
+	<li class="tab"><a href="#account">Account</a></li>
+</template>
+

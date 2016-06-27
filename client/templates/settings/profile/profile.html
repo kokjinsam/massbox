@@ -1,0 +1,29 @@
+<template name="profile">
+	{{#if currentUser}}
+	<div class="komo-setting__header">
+		<span class="komo-setting__title">Your Profile</span>
+		<a href="{{pathFor route='settings.profile.edit'}}" class="komo-setting__right-icon"><i class="material-icons">edit</i></a>
+	</div>
+	<div class="komo-setting__field-wrapper">
+		<div class="komo-setting__field-title">
+			<span class="komo-setting__main-title">Name</span><br>
+			<span class="komo-setting__secondary-title">{{formatNull user.name}}</span>
+		</div>
+	</div>
+	<div class="komo-setting__field-wrapper">
+		<div class="komo-setting__field-title">
+			<span class="komo-setting__main-title">Email</span><br>
+			<span class="komo-setting__secondary-title">{{email}}</span>
+		</div>
+		<div class="komo-setting__button {{isVerified}}">
+		  Not Verified
+		</div>
+	</div>
+	<div class="komo-setting__field-wrapper">
+		<div class="komo-setting__field-title">
+			<span class="komo-setting__main-title">Date of Birth</span><br>
+			<span class="komo-setting__secondary-title">{{formatNull user.dateOfBirth}}</span>
+		</div>
+	</div>
+	{{/if}}
+</template>

@@ -1,0 +1,25 @@
+.komo-home__navigation {
+	display:block;
+	width:100%;
+	padding:16px;
+	text-align:center;
+}
+
+#show-back, #show-next {
+	color:#000000;
+	opacity:0.54;
+	cursor:pointer;
+	font-size:16px;
+	margin:0px 8px;
+}
+
+#show-back i,
+#show-next i {
+	vertical-align:middle;
+}
+
+.komo-home__refresh {
+	position:absolute;
+	right:32px;
+	top:32px;
+}

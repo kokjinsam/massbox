@@ -1,0 +1,21 @@
+<template name="productList">
+	{{#linkTo route="item"}}
+		<div class="komo-item__list waves-effect waves">
+			<img src="{{getOnePic pictures}}" class="responsive-img">
+		
+			<div class="komo-item__wrap">	
+				<div class="komo-item__top">
+					<span>${{price}}</span>
+					<a href="{{pathFor route='seller.items.edit'}}" class="circle waves-effect waves"><i class="material-icons">edit</i></a>
+				</div>
+				
+				<div class="komo-item__bottom">
+					<span class="{{setColor status}}"><i class="material-icons">lens</i> {{status}}</span>
+					<span><i class="material-icons">visibility</i> {{views}}</span>
+				</div>
+			</div>
+		</div>
+		
+		<div class="divider"></div>
+	{{/linkTo}}
+</template>

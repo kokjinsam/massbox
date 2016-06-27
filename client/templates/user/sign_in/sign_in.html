@@ -1,0 +1,17 @@
+<template name="signIn">
+	<div class="komo-box__center">
+		<a href="{{pathFor route='home'}}" class="komo-user__logo">MassBox</a>
+		<form class="komo-user__form" id="sign-in">
+			<div class="input-field">
+				<input id="email" type="email" class="validate" autocomplete="off">
+				<label for="email">School Email</label>
+			</div>
+			<div class="input-field">
+				<input id="password" type="password" class="validate" autocomplete="off">
+				<label for="password">Password</label>
+			</div>
+			<button class="right btn waves-effect waves" style="color:white; margin-top:16px;" type="submit">sign in</button>
+    </form>
+    <a href="{{pathFor route='user.signUp'}}" style="display:block; margin-top:16px;">Need an account? Sign up here.</a>
+	</div>
+</template>

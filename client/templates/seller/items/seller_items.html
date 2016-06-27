@@ -1,0 +1,30 @@
+<template name="sellerItems">
+	<div class="komo-box__center-medium">
+		<a class='dropdown-button komo-select__btn' data-activates='dropdown1'><i class="material-icons">arrow_drop_down</i> {{getPage}}</a>
+
+	  <!-- Dropdown Structure -->
+	  <ul id='dropdown1' class='dropdown-content'>
+	    <li id="active-items"><a>Active</a></li>
+	    <li id="unlisted-items"><a>Unlisted</a></li>
+	    <li id="requested-items"><a>Requested</a></li>
+	    <li id="sold-items"><a>Sold</a></li>
+	  </ul>
+	  
+	  {{#if isActive}}
+			{{> activeItems}}
+	  {{/if}}
+	  
+	  {{#if isUnlisted}}
+			{{> unlistedItems}}
+		{{/if}}
+		
+		{{#if isRequested}}
+			{{> requestedItems}}
+		{{/if}}
+		
+		{{#if isSold}}
+			{{> soldItems}}
+		{{/if}}
+		<a class="btn-floating btn-large waves-effect waves-light red komo-fab__filter" href="{{pathFor route='seller.items.add'}}"><i class="material-icons">add</i></a>
+	</div>
+</template>

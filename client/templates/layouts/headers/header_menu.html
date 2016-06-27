@@ -1,0 +1,79 @@
+<template name="headerMenu">
+	<div class="{{setColor}} komo-fixed-nav">
+		<nav>
+			{{>yield 'titleNav'}}
+			<a href="#" data-activates="slide-out" class="button-collapse komo-nav__burger-menu"><i class="material-icons">menu</i></a>
+			<ul class="right komo-nav__menu">
+				{{> yield 'rightNav'}}
+			</ul>
+	  </nav>
+  </div>
+  <div class="komo-nav-spacer"></div>
+  <div class="side-nav" id="slide-out">
+		{{> yield 'slideOut'}}
+	</div>
+</template>
+
+<template name="homeTitle">
+	<a href="{{pathFor route='home'}}" class="komo-title">MassBox</a>
+</template>
+
+<template name="homeSlideOut">
+	{{#if currentUser}}
+		<div class="komo-side-nav__title komo-side-nav__background-2">
+			<div class="komo-side-nav__pic">
+				<img src="https://randomuser.me/api/portraits/lego/0.jpg" alt="" class="circle responsive-img komo-side-nav__img">
+			</div>
+			<div class="komo-side-nav__email">{{email}}</div>
+		</div>
+		<ul>
+			<a href="{{pathFor route='requests'}}"><li class="waves-effect waves"><i class="material-icons komo-side-nav__icon komo-red">access_time</i> <span class="komo-side-nav__list-title">Requests</span> <span class="komo-pub-count {{hideRequestCount}}">{{getPublishedCount 'request-buyer-count'}}</span></li></a>
+			<a href="{{pathFor route='messages'}}"><li class="waves-effect waves"><i class="material-icons komo-side-nav__icon komo-blue">mail</i> <span class="komo-side-nav__list-title">Messages</span> <span class="komo-pub-count {{hideMessageCount}}">{{getPublishedCount 'message-buyer-count'}}</span></li></a>
+			<a href="{{pathFor route='settings'}}"><li class="waves-effect waves"><i class="material-icons komo-side-nav__icon komo-green">settings</i> <span class="komo-side-nav__list-title">Settings</span></li></a>
+			<a href="{{pathFor route='seller.dashboard'}}"><li class="waves-effect waves"><i class="material-icons komo-side-nav__icon komo-lime">store</i> <span class="komo-side-nav__list-title">Switch to Seller</span></li></a>
+			<div class="divider"></div>
+			<a href="{{pathFor route='about'}}"><li class="waves-effect waves">About</li></a>
+			<a href="{{pathFor route='faq'}}"><li class="waves-effect waves">FAQ</li></a>
+			<a href="#" id="meteor-logout"><li class="waves-effect waves">Logout</li></a>
+		</ul>
+	{{else}}
+		<ul>
+			<a href="{{pathFor route='about'}}"><li class="waves-effect waves"><i class="material-icons komo-side-nav__icon komo-red">explore</i> <span class="komo-side-nav__list-title">About MassBox</span></li></a>
+			<a href="{{pathFor route='faq'}}"><li class="waves-effect waves"><i class="material-icons komo-side-nav__icon komo-green">question_answer</i> <span class="komo-side-nav__list-title">FAQ</span></li></a>
+			<a href="{{pathFor route='user.signIn'}}"><li class="waves-effect waves"><i class="material-icons komo-side-nav__icon komo-blue">lock_outline</i> <span class="komo-side-nav__list-title">Sign In</span></li></a>
+			<a href="{{pathFor route='user.signUp'}}"><li class="waves-effect waves"><i class="material-icons komo-side-nav__icon komo-lime">perm_identity</i> <span class="komo-side-nav__list-title">Sign Up</span></li></a>
+		</ul>
+	{{/if}}
+</template>
+
+<template name="dashboardTitle">
+	<a href="{{pathFor route='seller.dashboard'}}" class="komo-title">Seller Dashboard</a>
+</template>
+
+<template name="dashboardSlideOut">
+	{{#if currentUser}}
+		<div class="komo-side-nav__title komo-side-nav__background-1">
+			<div class="komo-side-nav__pic">
+				<img src="https://randomuser.me/api/portraits/lego/0.jpg" alt="" class="circle responsive-img komo-side-nav__img">
+			</div>
+			<div class="komo-side-nav__email">{{email}}</div>
+		</div>
+		<ul>
+			<a href="{{pathFor route='seller.requests'}}"><li class="waves-effect waves"><i class="material-icons komo-side-nav__icon komo-red">access_time</i> <span class="komo-side-nav__list-title">Requests</span> <span class="komo-pub-count {{hideRequestCount}}">{{getPublishedCount 'request-count'}}</span></li></a>
+			<a href="{{pathFor route='seller.messages'}}"><li class="waves-effect waves"><i class="material-icons komo-side-nav__icon komo-blue">mail</i> <span class="komo-side-nav__list-title">Messages</span> <span class="komo-pub-count {{hideMessageCount}}">{{getPublishedCount 'message-count'}}</span></li></a>
+			<a href="{{pathFor route='seller.items'}}"><li class="waves-effect waves"><i class="material-icons komo-side-nav__icon komo-orange">list</i> <span class="komo-side-nav__list-title">Items</span></li></a>
+			<a href="{{pathFor route='home'}}"><li class="waves-effect waves"><i class="material-icons komo-side-nav__icon komo-lime">shopping_basket</i> <span class="komo-side-nav__list-title">Switch to Buyer</span></li></a>
+			<div class="divider"></div>
+			<a href="{{pathFor route='about'}}"><li class="waves-effect waves">About</li></a>
+			<a href="{{pathFor route='faq'}}"><li class="waves-effect waves">FAQ</li></a>
+			<a href="#" id="meteor-logout"><li class="waves-effect waves">Logout</li></a>
+		</ul>
+	{{else}}
+		<ul>
+			<a href="{{pathFor route='about'}}"><li class="waves-effect waves"><i class="material-icons komo-side-nav__icon komo-red">explore</i> <span class="komo-side-nav__list-title">About MassBox</span></li></a>
+			<a href="{{pathFor route='faq'}}"><li class="waves-effect waves"><i class="material-icons komo-side-nav__icon komo-green">question_answer</i> <span class="komo-side-nav__list-title">FAQ</span></li></a>			
+			<a href="{{pathFor route='user.signIn'}}"><li class="waves-effect waves"><i class="material-icons komo-side-nav__icon komo-blue">lock_outline</i> <span class="komo-side-nav__list-title">Sign In</span></li></a>
+			<a href="{{pathFor route='user.signUp'}}"><li class="waves-effect waves"><i class="material-icons komo-side-nav__icon komo-lime">perm_identity</i> <span class="komo-side-nav__list-title">Sign Up</span></li></a>
+		</ul>
+	{{/if}}
+</template>

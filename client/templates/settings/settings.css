@@ -1,0 +1,54 @@
+.komo-setting__header {
+	width:100%;
+	padding:8px 16px;
+}
+
+.komo-setting__title {
+	font-size:20px;
+}
+
+.komo-setting__right-icon {
+	vertical-align:middle;
+	float:right;
+}
+
+.komo-custom-table td, .komo-custom-table th{
+	padding:0px 8px;
+}
+
+.komo-custom-table .input-field {
+	margin-top:0.5em;
+}
+
+.komo-custom-table {
+	margin-bottom:8px;
+}
+
+.komo-setting__field-wrapper {
+	padding:8px 8px;
+	width:100%;
+}
+
+.komo-setting__field-title {
+	display:inline-block;
+	vertical-align:middle;
+	width:70%;
+}
+
+.komo-setting__main-title {
+	font-size:16px;
+}
+
+.komo-setting__secondary-title {
+	font-size:16px;
+	color:#000000;
+	opacity:0.54;
+}
+
+.komo-setting__button {
+	display:inline-block;
+	vertical-align:middle;
+	float:right;
+	margin-right:8px;
+}
+

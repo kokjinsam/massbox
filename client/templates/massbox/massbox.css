@@ -1,0 +1,28 @@
+.komo-text__huge {
+	font-size:56px;
+	margin-top:30%;
+	margin-bottom:32px;
+	color:#FFFFFF;
+	
+}
+
+.komo-text__normal {
+	font-size:20px;
+	margin-bottom:32px;
+	color:#FFFFFF;
+	opacity:0.54;
+}
+
+.komo-faq__banner {
+	background:url('/background/lolipop.png');
+	background-size:100% auto;
+	background-repeat: no-repeat;
+	height:200px;
+	width:100%;
+}
+
+.collapsible-header {
+	height:auto;
+	line-height:normal;
+	padding:1em;
+}

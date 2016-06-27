@@ -1,0 +1,57 @@
+<template name="sellerEditVehicle">
+	<p><b>Additional Vehicle Information </b></p>
+	<div class="row">
+		<div class="col s6">
+			<label>Type</label>
+	    <select name="type" id="input_type" class="browser-default">
+	      <option value="" disabled selected>Choose a type</option>
+				{{#each type}}
+					<option value="{{value}}" {{selected value ../product.type}}>{{text}}</option>
+				{{/each}}
+	    </select>
+		</div>
+		<div class="input-field col s6">
+			<input name="make" id="input_make" type="text" value="{{product.make}}">
+			<label class="active" for="input_make">Make</label>
+		</div>
+	</div>
+	<div class="row">
+		<div class="input-field col s6">
+			<input name="year:number" id="input_year" type="number" value="{{product.year}}">
+			<label class="active" for="input_year">Year</label>
+		</div>
+		<div class="input-field col s6">
+			<input name="mileage:number" id="input_mileage" type="number" value="{{product.mileage}}">
+			<label class="active" for="input_mileage">Mileage</label>
+		</div>
+	</div>
+	<div class="row">
+		<div class="input-field col s4">
+			<input name="height:number" id="input_height" type="number" value="{{product.height}}">
+			<label class="active" for="input_height">Height (bike)</label>
+		</div>
+		<div class="input-field col s4">
+			<input name="length:number" id="input_length" type="number" value="{{product.length}}">
+			<label class="active" for="input_length">Length (bike)</label>
+		</div>
+		<div class="col s4">
+			<label>Speed</label>
+	    <select name="speed" id="input_speed" class="browser-default">
+	      <option value="" disabled selected>Choose speed</option>
+				{{#each speed}}
+					<option value="{{value}}" {{selected value ../product.speed}}>{{text}}</option>
+				{{/each}}
+	    </select>
+		</div>
+	</div>
+	<div id="komo__other-type" class="modal">
+		<div class="modal-content">      
+			<div class="input-field">
+				<input id="input_other" type="text" placeholder="Please specify vehicle type">
+			</div>
+      <div class="modal-footer">
+				<a href="#!" id="komo__other-type-add" class=" modal-action modal-close waves-effect waves-green btn-flat">Add</a>
+			</div>
+   </div>
+	</div>
+</template>

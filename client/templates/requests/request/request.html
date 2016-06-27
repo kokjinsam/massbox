@@ -1,0 +1,36 @@
+<template name="request">
+	<main>
+	<div class="komo-box__center">
+		{{#if Template.subscriptionsReady}}
+			{{#if isEmptySub}}
+				Sorry, something is wrong!
+			{{else}}
+				<span class="komo-request__field">Items requested</span>
+		
+				{{#each products}}
+					<div class="komo-request__item">
+						<span class="komo-request__label">{{#linkTo route='item'}}Item{{/linkTo}}</span>
+						<span class="komo-request__label-value">&#36;{{price}}</span>
+					</div>
+				{{/each}}
+				
+					<div class="komo-request__item">
+						<span class="komo-request__label">Total</span>
+						<span class="komo-request__label-value">&#36;{{total}}</span>
+					</div>
+					
+				<div class="divider" style="margin-top:8px;"></div>
+				
+				{{#with request}}
+					{{> requestDetail}}
+					<a href="{{pathFor route='requests.edit'}}" class="btn-flat komo-button__top-right {{hideEdit}}"><i class="material-icons">edit</i></a>
+					<a href="{{pathFor route='requests.schedule'}}" class="btn-flat komo-button__top-right {{showEdit}}"><i class="material-icons">edit</i></a>
+				{{/with}}
+				
+			{{/if}}
+		{{else}}
+			{{> loading}}
+		{{/if}}
+	</div>
+	</main>
+</template>

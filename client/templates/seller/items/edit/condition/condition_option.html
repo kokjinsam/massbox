@@ -1,0 +1,9 @@
+<template name="conditionOption">
+	<label>Item Condition</label>
+	<select name="condition" id="input_condition" class="browser-default">
+		<option value="" selected disabled>Please choose condition</option>
+		{{#each condition}}
+			<option value="{{value}}" {{selected value ../product.condition}}>{{text}}</option>
+		{{/each}}
+	</select>
+</template>

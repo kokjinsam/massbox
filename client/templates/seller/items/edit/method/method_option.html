@@ -1,0 +1,9 @@
+<template name="methodOption">
+	<label>Item Handling</label>
+	<select name="method" id="input_method" class="browser-default">
+		<option value="" selected disabled>Please choose method</option>
+		{{#each method}}
+			<option value="{{value}}" {{selected value ../product.method}}>{{text}}</option>
+		{{/each}}
+	</select>
+</template>

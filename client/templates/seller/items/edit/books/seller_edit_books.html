@@ -1,0 +1,18 @@
+<template name="sellerEditBooks">
+	<p><b>Additional Book Information </b></p>
+					
+	<div class="input-field">
+		<input name="title" value="{{product.title}}" id="input_book-title" type="text">
+		<label class="active" for="input_book-title">Book Title</label>
+	</div>
+	<div class="row">
+		<div class="input-field col s6">
+			<input name="classTitle" value="{{product.classTitle}}" id="input_class-title" type="text">
+			<label class="active" for="input_class-title">Class Title (ie.MATH)</label>
+		</div>
+		<div class="input-field col s6">
+			<input name="classNumber:number" value="{{product.classNumber}}" id="input_class-number" type="number">
+			<label class="active" for="input_class-number">Class Number (ie.5xxx)</label>
+		</div>
+	</div>
+</template>

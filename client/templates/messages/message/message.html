@@ -1,0 +1,36 @@
+<template name="message">
+	{{#if Template.subscriptionsReady}}	
+		<div class="komo-box__center">
+			<div class="komo-message__texts">
+			{{#each messages}}
+				{{#if isSender sender}}
+					<div class="komo-message__texts-right">
+						<div class="komo-message__text-msg">{{message}}</div>
+						<div class="komo-message__text-time">{{status}}</div>
+					</div> 
+				{{else}}
+					<div class="komo-message__texts-left">
+						<div class="komo-message__text-msg">{{message}}</div>
+					</div>
+				{{/if}}
+			{{/each}}
+			</div>
+		</div>
+		<div class="komo-message__spacer"></div>
+		{{> sendMessage}}
+	{{else}}
+		{{> loading}}
+	{{/if}}
+</template>
+
+<template name="sendMessage">
+	<div class="komo-message__send">
+		<form id="send-message">
+			<div class="input-field komo-message__send-text">
+				<input name="message" id="input_message" type="text" placeholder="Send message (max. 140 words)" length="140">
+				<label for="input_message"></label>
+			</div>
+			<button type="submit" class="btn-floating btn-large waves-effect waves-light red komo-message__send-button"><i class="material-icons">send</i></button>
+		</form>
+	</div>
+</template>

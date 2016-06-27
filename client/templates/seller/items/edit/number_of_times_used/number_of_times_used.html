@@ -1,0 +1,9 @@
+<template name="numberOfTimesUsedOption">
+	<label>Number of Times Used</label>
+	<select name="numberOfTimesUsed" id="input_numberOfTimesUsed" class="browser-default">
+		<option value="" selected disabled>Please choose one</option>
+		{{#each numberOfTimesUsed}}
+			<option value="{{value}}" {{selected value ../product.numberOfTimesUsed}}>{{text}}</option>
+		{{/each}}
+	</select>
+</template>

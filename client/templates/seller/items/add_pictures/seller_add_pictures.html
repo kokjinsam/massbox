@@ -1,0 +1,31 @@
+<template name="sellerAddPictures">
+	<div class="komo-box__center">
+		<p>Upload some pictures of the item. Humans like to see pictures. So, add pictures now!</p>
+			
+		<div class="komo-box__center">
+			{{> itemPictures}}
+			{{#if picIsNotReady}}
+				{{> loading}}
+			{{else}}
+				<label class="custom-file-upload {{hideUpload}}">
+					<i class="material-icons">add</i>
+					<span>Add Pictures</span>
+					<input type="file" name="picture" id="file_picture">
+				</label>
+			{{/if}}
+		</div>
+	</div>
+</template>
+
+<template name="itemPictures">
+	{{#each upload_images}}
+		 {{> itemPicture}}
+	{{/each}}
+</template>
+
+<template name="itemPicture">
+	<div class="selected-thumb">
+		<img src="{{this.url}}" class="responsive-img">
+		<i class="material-icons komo-image__delete">delete</i>
+	</div>
+</template>

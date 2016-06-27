@@ -1,0 +1,137 @@
+.komo-button {
+	width:100%;
+	max-width:250px;
+	margin:8px auto;
+	display:block;
+}
+
+.komo-button__top-right, .komo-button__top-right-2 {
+	position:fixed; 
+	right:0; 
+	top:0; 
+	z-index:999;
+	color:white;
+	margin-top:8px;
+	font-weight:400;
+	font-size:1.2em;
+	padding:0;
+}
+
+.komo-button__top-right{
+	margin-right:16px;
+}
+
+.komo-button__top-right-2{
+	margin-right:64px;
+}
+
+.komo-button__top-right i,
+.komo-button__top-right-2 i {
+	font-size:1.7em;
+}
+
+.komo-button__top-right:focus {
+	background:transparent;
+}
+
+.komo-button__bottom-right-unsticky {
+	margin-top:8px;
+	margin-bottom:8px;
+	float:right;
+}
+
+.komo-button__bottom-right-unsticky i{
+	vertical-align:middle;
+}
+
+.komo-button__full-width {
+	position:fixed;
+	bottom:0;
+	left:0;
+	width:100%;
+	background:#EF5350;
+	text-transform:uppercase;
+	font-size:1.3em;
+	text-align:center;
+	padding:11px 8px;
+	color:#FFFF00;
+}
+
+.komo-select__btn {
+	color:#000000;
+	opacity:0.54;
+	font-size:16px;
+	float:right;
+	margin:8px 0px;
+	cursor:pointer;
+}
+
+.komo-select__btn i {
+	vertical-align:middle;
+}
+
+html {
+	background:#F5F5F5;
+	height:100%;
+}
+
+body {
+	height:100%;
+}
+
+.komo-nav-blue,
+.komo-nav-blue nav {
+	background:#3F51B5;
+}
+
+.komo-nav-brown,
+.komo-nav-brown nav{
+	background:#795548;
+}
+
+.komo-hide {
+	display:none;
+}
+
+.komo-red {
+	color:#F44336;
+}
+
+.komo-blue {
+	color:#1565C0;
+}
+
+.komo-lime {
+	color:#C0CA33;
+}
+
+.komo-green {
+	color:#2E7D32;
+}
+
+.komo-orange {
+	color:#FF9800;
+}
+
+.komo-error__wrapper {
+	width:310px;
+	margin:0 auto;
+	display:block;
+	margin-top:30%;
+}
+
+.komo-error__icon {
+	font-size:7em;
+	display:inline-block;
+	color:#000000;
+	opacity:0.26;
+}
+
+.komo-error__desc {
+	display:inline-block;
+	vertical-align:top;
+	font-size:1.5em;
+	width:200px;
+	color:#000000;
+	opacity:0.26;
+}

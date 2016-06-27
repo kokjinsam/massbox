@@ -1,0 +1,14 @@
+<template name="transparentHeader">
+	<div class="komo-static-nav">
+		<div class="komo-nav-tab komo-transparent">
+			<div class="komo-nav-tab__title">
+				<a onclick="history.go(-1);">
+					<div class="circle waves-effect waves komo-arrow__black"><i class="material-icons">arrow_back</i></div>
+					<span>{{title}}</span>
+				</a>
+				
+				<a href="#" class="right" style="margin-top:3px;">{{> yield 'rightButton'}}</a>
+			</div>
+		</div>
+  </div>
+</template>

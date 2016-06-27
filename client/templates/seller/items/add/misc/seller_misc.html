@@ -1,0 +1,24 @@
+<template name="sellerMisc">
+	<p><b>Additional Misc. Information </b></p>
+	<div class="row">
+		<div class="col s12">
+			<label>Type</label>
+	    <select name="type" id="input_type" class="browser-default">
+	      <option value="" disabled selected>Choose a type</option>
+	      <option value="upass">UPass</option>
+	      <option value="iclick">I-click</option>
+	      <option value="others">Others</option>
+	    </select>
+		</div>
+	</div>
+	<div id="komo__other-type" class="modal">
+		<div class="modal-content">      
+			<div class="input-field">
+				<input id="input_other" type="text" placeholder="Please specify vehicle type">
+			</div>
+      <div class="modal-footer">
+				<a href="#!" id="komo__other-type-add" class=" modal-action modal-close waves-effect waves-green btn-flat">Add</a>
+			</div>
+   </div>
+	</div>
+</template>

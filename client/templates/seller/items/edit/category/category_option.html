@@ -1,0 +1,9 @@
+<template name="categoryOption">
+	<label>Category</label>
+	<select name="category" id="input_category" class="browser-default">
+		<option value="" selected disabled>Please choose category</option>
+		{{#each category}}
+			<option value="{{value}}" {{selected value ../product.category}}>{{text}}</option>
+		{{/each}}
+	</select>
+</template>

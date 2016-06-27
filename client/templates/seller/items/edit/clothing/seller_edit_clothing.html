@@ -1,0 +1,46 @@
+<template name="sellerEditClothing">
+	<p><b>Additional Clothing Information</b></p>
+	<div class="row">
+    <label>Type</label>
+    <select name="type" id="input_type" class="browser-default">
+      <option value="" disabled selected>Choose a type</option>
+      {{#each type}}
+				<option value="{{value}}" {{selectedType value ../product.type}}>{{text}}</option>
+			{{/each}}
+    </select>
+	</div>				
+	<div class="row">
+		<div class="col s4">
+			<label>Size</label>
+			<select name="size" id="input_size" class="browser-default">
+				<option value="" disabled selected>Choose size</option>
+				{{#each size}}
+					<option value="{{value}}" {{selectedSize value ../product.size}}>{{text}}</option>
+				{{/each}}
+			</select>
+		</div>
+		<div class="col s4">
+			<label>Sex</label>
+			<select name="sex" id="input_sex" class="browser-default">
+				<option value="" disabled selected>Choose sex</option>
+				{{#each sex}}
+					<option value="{{value}}" {{selectedSex value ../product.sex}}>{{text}}</option>
+				{{/each}}
+			</select>
+		</div>
+		<div class="input-field col s4">
+			<input name="color" value="{{product.color}}" id="input_color" type="text">
+			<label class="active" for="input_color">Color</label>
+		</div>
+	</div>
+	<div id="komo__other-type" class="modal">
+		<div class="modal-content">      
+			<div class="input-field">
+				<input id="input_other" type="text" placeholder="Please specify the clothing type">
+			</div>
+      <div class="modal-footer">
+				<a href="#!" id="komo__other-type-add" class=" modal-action modal-close waves-effect waves-green btn-flat">Add</a>
+			</div>
+   </div>
+	</div>
+</template>

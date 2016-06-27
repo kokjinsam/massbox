@@ -1,0 +1,9 @@
+<template name="statusOption">
+	<label>Status</label>
+	<select name="status" id="input_status" class="browser-default">
+		<option value="" selected disabled>Please choose category</option>
+		{{#each status}}
+			<option value="{{value}}" {{selected value ../product.status}}>{{text}}</option>
+		{{/each}}
+	</select>
+</template>
